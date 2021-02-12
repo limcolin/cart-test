@@ -1,0 +1,22 @@
+.index-page {
+  &__banner {
+    @include xs {
+      height: 100vh;
+    }
+
+    // &-img {
+    //   @include xs {
+    //     width: 100%;
+    //   }
+
+    //   width: 125%;
+    // }
+  }
+
+  //
+
+  video {
+    max-width: none !important;
+    max-height: none !important;
+  }
+}

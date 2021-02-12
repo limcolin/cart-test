@@ -1,0 +1,339 @@
+/*
+100: Thin, Hairline, Ultra-light, Extra-light
+200: Light
+300: Book
+400: Regular, Normal, Plain, Roman, Standard
+500: Medium
+600: Semi-bold, Demi-bold
+700: Bold
+800: Heavy, Black, Extra-bold
+900: Ultra-black, Extra-black, Ultra-bold, Heavy-black, Fat, Poster
+*/
+
+.neue-plak {
+  font-family: "Neue Plak", Helvetica, Arial, sans-serif;
+}
+
+//
+
+em,
+.em {
+  font-style: italic;
+}
+
+strong,
+.strong {
+  font-weight: bold;
+}
+
+//
+
+@mixin v1 {
+  @include sm {
+    font-size: 20vw;
+    line-height: 1;
+  }
+
+  @include xs {
+    font-size: 21vw;
+    line-height: 1;
+  }
+
+  font-family: "Neue Plak", Helvetica, Arial, sans-serif;
+
+  font-size: 30vw;
+  line-height: 1;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+}
+
+.v1 {
+  @include v1;
+}
+
+//
+
+@mixin v2 {
+  @include sm {
+    font-size: 20vw;
+  }
+
+  @include xs {
+    font-size: 30vw;
+  }
+
+  font-family: "Neue Plak", Helvetica, Arial, sans-serif;
+
+  font-size: 16vw;
+  line-height: 1;
+  font-weight: 900;
+}
+
+.v2 {
+  @include v2;
+}
+
+//
+
+@mixin v3 {
+  @include xs {
+    font-size: 22vw;
+    line-height: 1;
+  }
+
+  font-family: "Neue Plak", Helvetica, Arial, sans-serif;
+
+  font-size: 11.5vw;
+  line-height: 1;
+  font-weight: 900;
+  letter-spacing: 0.01em;
+}
+
+.v3 {
+  @include v3;
+}
+
+//
+
+@mixin v4 {
+  @include xs {
+    font-size: 17vw;
+    line-height: 1;
+  }
+
+  font-family: "Neue Plak", Helvetica, Arial, sans-serif;
+
+  font-size: 11vw;
+  line-height: 1;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+}
+
+.v4 {
+  @include v4;
+}
+
+//
+
+@mixin v5 {
+  @include xs {
+    font-size: 20vw;
+    line-height: 1;
+  }
+
+  font-family: "Neue Plak", Helvetica, Arial, sans-serif;
+
+  font-size: 8vw;
+  line-height: 1;
+  font-weight: 900;
+}
+
+.v5 {
+  @include v5;
+}
+
+//
+
+@mixin f1 {
+  @include sm {
+    font-size: 54px;
+    line-height: 60px;
+  }
+
+  @include xs {
+    font-size: 40px;
+    line-height: 44px;
+  }
+
+  font-family: "Neue Plak", Helvetica, Arial, sans-serif;
+
+  font-size: 60px;
+  line-height: 60px;
+  letter-spacing: -0.01em;
+  font-weight: 700;
+}
+
+.f1 {
+  @include f1;
+}
+
+//
+
+@mixin f2 {
+  @include sm {
+    font-size: 40px;
+    line-height: 44px;
+    // letter-spacing: 0;
+  }
+
+  @include xs {
+    font-size: 32px;
+    line-height: 36px;
+    // letter-spacing: 0;
+  }
+
+  font-family: "Neue Plak", Helvetica, Arial, sans-serif;
+
+  font-size: 40px;
+  line-height: 46px;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+}
+
+.f2 {
+  @include f2;
+}
+
+//
+
+@mixin f3 {
+  @include sm {
+    font-size: 22px;
+    line-height: 26px;
+    // letter-spacing: 0;
+  }
+
+  @include xs {
+    font-size: 24px;
+    line-height: 28px;
+    // letter-spacing: 0;
+  }
+
+  font-family: "Neue Plak", Helvetica, Arial, sans-serif;
+
+  font-size: 20px;
+  line-height: 26px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.f3 {
+  @include f3;
+}
+
+//
+
+@mixin f4 {
+  @include sm {
+    font-size: 15px;
+    line-height: 24px;
+    letter-spacing: 0.03em;
+  }
+
+  @include xs {
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: 0.03em;
+  }
+
+  font-family: "Neue Plak", Helvetica, Arial, sans-serif;
+
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.f4 {
+  @include f4;
+}
+
+//
+
+@mixin f5 {
+  @include sm {
+    font-size: 15px;
+    line-height: 24px;
+    letter-spacing: 0.03em;
+  }
+
+  @include xs {
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: 0.03em;
+  }
+
+  font-family: "Neue Plak", Helvetica, Arial, sans-serif;
+
+  font-size: 15px;
+  line-height: 20px;
+  letter-spacing: 0.02em;
+}
+
+.f5 {
+  @include f5;
+}
+
+//
+
+@mixin b1 {
+  font-family: "Neue Plak", Helvetica, Arial, sans-serif;
+
+  font-size: 20px;
+  line-height: 26px;
+}
+
+.b1 {
+  @include b1;
+}
+
+//
+
+@mixin b2 {
+  @include xs {
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  font-family: "Neue Plak", Helvetica, Arial, sans-serif;
+
+  font-size: 18px;
+  line-height: 22px;
+}
+
+.b2 {
+  @include b2;
+}
+
+//
+
+@mixin b3 {
+  font-family: "Neue Plak", Helvetica, Arial, sans-serif;
+
+  font-size: 15px;
+  line-height: 18px;
+}
+
+.b3 {
+  @include b3;
+}
+
+//
+
+@mixin caption {
+  @include sm {
+    line-height: 16px;
+  }
+
+  @include xs {
+    font-size: 10px;
+    line-height: 15px;
+    letter-spacing: 0.03em;
+  }
+
+  font-family: "Neue Plak", Helvetica, Arial, sans-serif;
+
+  font-size: 12px;
+  line-height: 15px;
+
+  text-underline-position: under;
+}
+
+.caption {
+  @include caption;
+}
+
+.condensed {
+  font-weight: 800;
+  letter-spacing: 0.03em;
+}

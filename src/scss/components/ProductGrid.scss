@@ -1,0 +1,6 @@
+.product-grid {
+  &__item {
+    @include hoverable {
+    }
+  }
+}

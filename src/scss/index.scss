@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "../../node_modules/@glidejs/glide/dist/css/glide.core.min.css";
+
+@import "transitions.scss";
+@import "screen.scss";
+@import "grid.scss";
+@import "fonts.scss";
+@import "base.scss";
+@import "common.scss";
+@import "components/Button.scss";
+@import "components/Header.scss";
+@import "components/Layout.scss";
+@import "components/Nav.scss";
+@import "components/ProductGrid.scss";
+@import "templates/index-page.scss";
+@import "templates/product-page.scss";

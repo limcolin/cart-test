@@ -1,0 +1,37 @@
+.header {
+  transition: $default-transition background, $default-transition transform;
+
+  &.menu-active {
+    .menu__burger__line--0 {
+      transform: translate3d(0, 7px, 0) rotate(225deg);
+    }
+
+    .menu__burger__line--1 {
+      transform: translate3d(0, -7px, 0) rotate(-225deg);
+    }
+  }
+
+  &.notification-active {
+    transform: translate3d(0, 32px, 0);
+  }
+
+  //
+
+  &__flower {
+    &__text {
+      font-size: 8px;
+      line-height: 1.975;
+      margin-top: 1px;
+      margin-left: -0.33px;
+      font-weight: 900;
+    }
+  }
+
+  &__text {
+    @include xs {
+      font-size: 24px;
+    }
+
+    line-height: 0.8;
+  }
+}

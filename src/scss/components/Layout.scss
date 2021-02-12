@@ -1,0 +1,7 @@
+.layout {
+  transition: $default-transition transform;
+
+  &.notification-active {
+    transform: translate3d(0, 32px, 0);
+  }
+}

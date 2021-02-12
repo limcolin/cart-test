@@ -1,0 +1,212 @@
+$grid_columns: 12;
+$grid_columns_xs: 12;
+$grid_gutter: 8px;
+$grid_padding: (
+  xl: 3rem,
+  lg: 3rem,
+  md: 3rem,
+  sm: 1rem,
+  xs: 1rem,
+);
+
+.grid {
+  @include xl {
+    width: calc(100% - (#{map-get($grid_padding, "xl")} * 2));
+  }
+
+  @include lg {
+    width: calc(100% - (#{map-get($grid_padding, "lg")} * 2));
+  }
+
+  @include md {
+    width: calc(100% - (#{map-get($grid_padding, "md")} * 2));
+  }
+
+  @include sm {
+    width: calc(100% - (#{map-get($grid_padding, "sm")} * 2));
+  }
+
+  @include xs {
+    width: calc(100% - (#{map-get($grid_padding, "xs")} * 2));
+  }
+
+  @include ms-all {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: stretch;
+  }
+
+  //
+
+  width: 100%;
+  position: relative;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat($grid_columns, minmax(0, 1fr));
+  grid-gap: $grid_gutter / 2 $grid_gutter;
+
+  &--nowrap {
+    grid-auto-flow: column;
+    overflow: auto;
+  }
+}
+
+[class*="grid-"] {
+  @supports (display: grid) {
+    grid-column-end: span $grid_columns;
+  }
+}
+
+@mixin generate-classes($columns: $grid_columns, $breakpoint_key: "") {
+  $breakpoint_suffix: "";
+
+  @if $breakpoint_key != "" {
+    $breakpoint_suffix: $breakpoint_key + "\\:";
+  }
+
+  @for $i from 1 through $columns {
+    $end_class: "." + $breakpoint_suffix + "grid-end-" + $i;
+    $start_class: "." + $breakpoint_suffix + "grid-start-" + $i;
+
+    #{$end_class} {
+      @include ms-all {
+        width: calc(100% / #{$grid_columns} * #{$i});
+      }
+
+      @supports (display: grid) {
+        grid-column-end: span $i;
+      }
+    }
+
+    #{$start_class} {
+      @include ms-all {
+        margin-left: calc(100% / #{$grid_columns} * #{$i - 1});
+      }
+
+      @supports (display: grid) {
+        grid-column-start: $i;
+      }
+    }
+  }
+}
+
+@include generate-classes($grid_columns);
+
+@include xl {
+  @include generate-classes($grid_columns, "xl");
+}
+
+@include lg {
+  @include generate-classes($grid_columns, "lg");
+}
+
+@include md {
+  @include generate-classes($grid_columns, "md");
+}
+
+@include sm {
+  @include generate-classes($grid_columns, "sm");
+}
+
+@include xs {
+  @include generate-classes($grid_columns, "xs");
+}
+
+@function grid-end($count) {
+  @return calc((100vw / #{$grid_columns}) * #{$count});
+}
+
+//
+
+.offgrid-left {
+  @include lg {
+    width: calc(100% + #{map-get($grid_padding, "lg")});
+    margin-left: 0 - map-get($grid_padding, "lg");
+  }
+
+  @include md {
+    width: calc(100% + #{map-get($grid_padding, "md")});
+    margin-left: 0 - map-get($grid_padding, "md");
+  }
+
+  @include sm {
+    width: calc(100% + #{map-get($grid_padding, "sm")});
+    margin-left: 0 - map-get($grid_padding, "sm");
+  }
+
+  @include xs {
+    width: calc(100% + #{map-get($grid_padding, "xs")});
+    margin-left: 0 - map-get($grid_padding, "xs");
+  }
+
+  margin-left: 0 - map-get($grid_padding, "xl");
+
+  &--no-touch {
+    @include sm {
+      width: 100%;
+      margin-left: auto;
+    }
+  }
+}
+
+.offgrid-right {
+  @include lg {
+    width: calc(100% + #{map-get($grid_padding, "lg")});
+    margin-right: 0 - map-get($grid_padding, "lg");
+  }
+
+  @include md {
+    width: calc(100% + #{map-get($grid_padding, "md")});
+    margin-right: 0 - map-get($grid_padding, "md");
+  }
+
+  @include sm {
+    width: calc(100% + #{map-get($grid_padding, "sm")});
+    margin-right: 0 - map-get($grid_padding, "sm");
+  }
+
+  @include xs {
+    width: calc(100% + #{map-get($grid_padding, "xs")});
+    margin-right: 0 - map-get($grid_padding, "xs");
+  }
+
+  margin-right: 0 - map-get($grid_padding, "xl");
+
+  &--no-touch {
+    @include sm {
+      width: 100%;
+      margin-right: auto;
+    }
+  }
+}
+
+.offgrid-x {
+  @include lg {
+    width: calc(100% + 2 * #{map-get($grid_padding, "lg")});
+    right: calc(-1 * #{map-get($grid_padding, "lg")});
+  }
+
+  @include md {
+    width: calc(100% + 2 * #{map-get($grid_padding, "md")});
+    right: calc(-1 * #{map-get($grid_padding, "md")});
+  }
+
+  @include sm {
+    width: calc(100% + 2 * #{map-get($grid_padding, "sm")});
+    right: calc(-1 * #{map-get($grid_padding, "sm")});
+  }
+
+  @include xs {
+    width: calc(100% + 2 * #{map-get($grid_padding, "xs")});
+    right: calc(-1 * #{map-get($grid_padding, "xs")});
+  }
+
+  width: calc(100% + 2 * #{map-get($grid_padding, "xl")});
+  right: calc(-1 * #{map-get($grid_padding, "xl")});
+}
+
+.no-margin--legacy {
+  @include ms-ie {
+    margin-left: 0 !important;
+  }
+}
